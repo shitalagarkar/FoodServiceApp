@@ -14,7 +14,7 @@ import com.fsa.model.menu.factory.MenuItemFactory;
 
 public class ApplicationDataCreator {
 
- public RestaurantDataHolder createData() {
+ public RestaurantDataHolder createData() { 
 	 
 	 MenuItemFactory menuFactory =  MenuItemFactory.getFactory();
 	 List <MenuItem> vegMenu = new ArrayList<>();

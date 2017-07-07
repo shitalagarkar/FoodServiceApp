@@ -6,7 +6,6 @@ import com.fsa.model.BillInputParameters;
 import com.fsa.model.contract.SelectedMenuItem;
 import com.fsa.model.menu.Bill;
 import com.fsa.service.contract.BillGenerator;
-import com.fsa.service.contract.RestaurantInfo;
 
 public class BillGeneratorService implements BillGenerator {
 	

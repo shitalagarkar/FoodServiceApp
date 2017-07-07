@@ -1,6 +1,7 @@
 package com.fsa.model;
 
 public class Address {
+	
 	String street1;
 	String area;
 	

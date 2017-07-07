@@ -7,6 +7,7 @@ import com.fsa.service.RestarantSearchService;
 import com.fsa.service.contract.RestaurantInfo;
 import com.fsa.service.contract.RestaurantSearchServiceContract;
 
+
 public class RestaurantFilter {
 	
 	String name;

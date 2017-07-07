@@ -11,6 +11,7 @@ import com.fsa.service.contract.RestaurantInfo;
 import com.fsa.service.RestaurantService;
 
 public class RestaurantDataHolder {
+	
 	/*
 	 * I am not happy with this data structure. 
 	 * But I am not able to comeup to anythign else

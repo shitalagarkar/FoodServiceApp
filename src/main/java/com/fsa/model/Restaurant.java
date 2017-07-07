@@ -2,6 +2,7 @@ package com.fsa.model;
 
 import com.fsa.model.contract.MenuList;
 
+
 public class Restaurant {
 	
 	Integer id;

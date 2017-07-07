@@ -5,6 +5,7 @@ import java.util.List;
 import com.fsa.model.contract.SelectedMenuItem;
 import com.fsa.service.contract.RestaurantInfo;
 
+
 public class BillInputParameters {
 	RestaurantInfo restInfo;
 	List<SelectedMenuItem> selectedMenu;

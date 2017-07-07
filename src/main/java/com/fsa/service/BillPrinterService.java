@@ -1,7 +1,5 @@
 package com.fsa.service;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 import com.fsa.model.menu.Bill;
 import com.fsa.service.contract.BIllPrinter;
 

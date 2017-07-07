@@ -2,6 +2,7 @@ package com.fsa.service.contract;
 
 import java.util.List;
 
+
 public interface RestaurantInfo {
 	public String getRestarantAddress();
 	public Double getRestarantRating();

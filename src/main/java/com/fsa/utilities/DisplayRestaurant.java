@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fsa.service.contract.RestaurantInfo;
 
+
 public class DisplayRestaurant {
 
 	public boolean displayRestaurantInformation (List<RestaurantInfo> restaurantInfo, RestaurantFilter filter) {

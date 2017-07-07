@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fsa.main.RestaurantDataHolder;
 import com.fsa.model.Address;
-import com.fsa.model.Restaurant;
 import com.fsa.service.contract.RestaurantInfo;
 import com.fsa.service.contract.RestaurantSearchServiceContract;
 /*
