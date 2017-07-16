@@ -19,20 +19,26 @@ public class Menu implements MenuList {
 	public List<MenuItem> getCompleteMenu() {
 		List<MenuItem> completeMenuList  = new ArrayList<>(); 
 		if(null != menuMap.get(ItemCategory.NONVEG) ){
-			completeMenuList.addAll(menuMap.get(ItemCategory.NONVEG)) ;
+			completeMenuList.addAll(returnNewMenuItemList(menuMap.get(ItemCategory.NONVEG))) ;
 		}
 		if(null != menuMap.get(ItemCategory.VEG)) {
-			completeMenuList.addAll(menuMap.get(ItemCategory.VEG));
+			completeMenuList.addAll(returnNewMenuItemList(menuMap.get(ItemCategory.VEG)));
 		}
 		 return completeMenuList;
 	}
 
 	public List<MenuItem> getNonVegMenu() {
-		return menuMap.get(ItemCategory.NONVEG);
+		return returnNewMenuItemList(menuMap.get(ItemCategory.NONVEG));
+	}
+
+	private List<MenuItem> returnNewMenuItemList(List <MenuItem> itemList) {
+		List <MenuItem> tempList = new ArrayList<>();
+		tempList.addAll(itemList);
+		return tempList;
 	}
 
 	public List<MenuItem> getVegMenu() {
-		return menuMap.get(ItemCategory.VEG);
+		return returnNewMenuItemList(menuMap.get(ItemCategory.VEG));
 	}
 
 	@Override

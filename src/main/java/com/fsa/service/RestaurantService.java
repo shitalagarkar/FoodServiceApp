@@ -6,6 +6,7 @@ import java.util.List;
 import com.fsa.model.Restaurant;
 import com.fsa.model.contract.MenuItem;
 import com.fsa.service.contract.RestaurantInfo;
+import com.fsa.utilities.RestaurantMenuDisplayUtility;
 
 
 public class RestaurantService implements RestaurantInfo{
@@ -23,9 +24,7 @@ public class RestaurantService implements RestaurantInfo{
 
 	@Override
 	public String getRestarantAddress() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(resta.getAddress().getStreet1()).append(" ").append(resta.getAddress().getArea());
-		return builder.toString();
+		return resta.getAddress();
 	}
 
 	@Override
@@ -34,18 +33,18 @@ public class RestaurantService implements RestaurantInfo{
 	}
 
 	@Override
-	public List<String> getMenu() {
-		return createMenuList(resta.getRestMenu().getCompleteMenu());
+	public String getMenu() {
+		return new RestaurantMenuDisplayUtility(resta.getCompleteMenuList()).displayRestaurantMenuInformation();
 	}
 
 	@Override
-	public List<String> getNonVegMenu() {
-		return createMenuList(resta.getRestMenu().getNonVegMenu());
+	public String getNonVegMenu() {
+		return new RestaurantMenuDisplayUtility(resta.getNonVegMenu()).displayRestaurantMenuInformation();
 	}
 
 	@Override
-	public List<String> getVegMenu() {
-		return createMenuList(resta.getRestMenu().getVegMenu());
+	public String getVegMenu() {
+		return new RestaurantMenuDisplayUtility(resta.getVegMenu()).displayRestaurantMenuInformation();
 	}
 
 	@Override
@@ -53,32 +52,43 @@ public class RestaurantService implements RestaurantInfo{
 		return resta.getName();
 	}
 
-	private List<String> createMenuList(List<MenuItem> lst) {
-		List<String> resultList = new ArrayList<>();
-		if(null != lst && !lst.isEmpty()){
-			int size = lst.size();
-			for(int index=0 ; index< size; index++) {
-				MenuItem tempMenu = (MenuItem) lst.get(index);
-				StringBuilder menu = new StringBuilder();
-				menu.append(tempMenu.getMenuId()).append("\t").append(tempMenu.getItemName()).append("\t").
-					append(tempMenu.getItemPrice());
-				resultList.add(menu.toString());
-			}
-		}
-		return resultList;
-	}
 
 	@Override
 	public Double getMenuPrice(Integer menuId) {
-		MenuItem item = resta.getRestMenu().getMenuItemById(menuId);
-		return item.getItemPrice();
+		return  resta.getMenuPrice(menuId);
+
 	}
 
 	@Override
 	public String getMenuName(Integer menuId) {
-		MenuItem item = resta.getRestMenu().getMenuItemById(menuId);
-		return item.getItemName();
+		return resta.getMenuName(menuId);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((resta == null) ? 0 : resta.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RestaurantService other = (RestaurantService) obj;
+		if (resta == null) {
+			if (other.resta != null)
+				return false;
+		} else if (!resta.equals(other.resta))
+			return false;
+		return true;
+	}
+	
 	
 	
 	

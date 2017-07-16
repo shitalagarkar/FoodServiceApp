@@ -26,7 +26,7 @@ public class RestaurantDataHolder {
 	public List<RestaurantInfo> getRestaurantsByName (String restName) {
 		List<RestaurantInfo> restList = null;
 		if(null != restaurantData) {
-			 restList = converObject((List<Restaurant>)restaurantData.get(restName));
+			 restList = converObject((List<Restaurant>)restaurantData.get(restName.toUpperCase()));
 		} 
 		return restList;
 	}
@@ -37,7 +37,7 @@ public class RestaurantDataHolder {
 		for ( Entry<String, List<Restaurant>> entry: restaurantData.entrySet() ) {
 			List<Restaurant> restList =(List<Restaurant>) entry.getValue();
 			for(Restaurant rest: restList) {
-				if (rest.getAddress().equals(location)){
+				if (rest.getAddressObject().equals(location)){
 					if(null == resultRestList) {
 						resultRestList = new ArrayList<RestaurantInfo>();
 					}
@@ -50,16 +50,17 @@ public class RestaurantDataHolder {
 	
 	public List<RestaurantInfo> getRestaurantByNameAndAddress (String name, Address location) {
 		List<RestaurantInfo> resultRestList = null;
-			List<Restaurant> restList =(List<Restaurant>) restaurantData.get(name);
+		if (null != restaurantData.get(name.toUpperCase())) {
+			List<Restaurant> restList =(List<Restaurant>) restaurantData.get(name.toUpperCase());
 			for(Restaurant rest: restList) {
-				if (rest.getAddress().equals(location)){
+				if (rest.getAddressObject().equals(location)){
 					if(null == resultRestList) {
 						resultRestList = new ArrayList<RestaurantInfo>();
 					}
 					resultRestList.add(new RestaurantService(rest));
 				}
 			}
-		 
+		}
 		return resultRestList;
 	}
 	

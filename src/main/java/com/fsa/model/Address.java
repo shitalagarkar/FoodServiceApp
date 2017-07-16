@@ -19,12 +19,24 @@ public class Address {
 		return area;
 	}
 	
+	public Address(Address addr ) {
+		if (null != addr ) {
+			this.street1 = addr.getStreet1();
+			this.area = addr.getArea();
+		}
+	}
 	
+	
+	@Override
+	public String toString() {
+		return "[street1=" + street1 + ", area=" + area + "]";
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if(null != obj &&  (obj instanceof Address )  ){
 			Address temp = (Address)obj;
-			if(area.equals(temp.area)) {
+			if(area.equalsIgnoreCase(temp.area)) {
 				return true ;
 			} else {
 				return false;

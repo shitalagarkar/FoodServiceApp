@@ -53,7 +53,7 @@ public class ApplicationDataCreator {
 	 List<Restaurant> restList = new ArrayList<>();
 	 restList.add(deccan);
 	 
-	 restMap.put("Deccan Rendevouse", restList);
+	 restMap.put("Deccan Rendevouse".toUpperCase(), restList);
 	 
 	 /* Restaurant 2 - Copa Cabana
 	 Address: Apte Road Deccan
@@ -96,7 +96,7 @@ public class ApplicationDataCreator {
 
 	 List<Restaurant> rest2 = new ArrayList<>();
 	 rest2.add(copa);
-	 restMap.put("Copa Cabana", rest2);
+	 restMap.put("Copa Cabana".toUpperCase(), rest2);
 	 
 	
 
@@ -140,7 +140,7 @@ public class ApplicationDataCreator {
 	 restList3.add(shivSagar);
 	 restList3.add(shivSagar2);
 	 
-	 restMap.put("Shiv Sagar", restList3);
+	 restMap.put("Shiv Sagar".toUpperCase(), restList3);
 	 
 	 return new RestaurantDataHolder(restMap);
  }
